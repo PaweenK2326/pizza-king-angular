@@ -1,0 +1,47 @@
+#total-price{
+    font-size: 1.7em;
+    color: #252525;
+    padding: 0.1em 0.3em 0.1em 0.7em;
+    margin-left: 0.8em;
+    margin-bottom: 0;
+    background-color: white;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#total-currency{
+    font-size: 1.7em;
+    color: #252525;
+    padding: 0.1em 0.7em 0.1em 0.3em;
+    margin-right: 0.6em;
+    margin-bottom: 0;
+    background-color: white;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.border-b{
+    border-bottom: 3px solid white;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+.total-b{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.total-topping{
+    text-align: center;
+}
+@media (min-width: 992px){
+    .border-b{
+        border: none;
+        padding-bottom: 0;
+    }
+    .total-b{
+        justify-content: flex-end;
+    }
+    .total-topping{
+        text-align: left;
+    }
+}

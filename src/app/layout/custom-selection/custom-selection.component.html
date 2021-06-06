@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-4 offset-lg-0 px-md-4 px-xl-5" *ngFor="let custom of customizations | keyvalue: originalOrder">
+        <table class="pk-table">
+            <thead>
+                <tr>
+                    <th colspan="2"><h3 class="text-center">Select {{ custom.key }}</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let value of custom.value; index as i">
+                    <td>
+                        <input type="radio"
+                            id="{{ custom.key.toLowerCase() + i }}"
+                            name="{{ custom.key }}"
+                            class="ml-2 mr-3"
+                            value="{{ value.name }}"
+                            (change)="getValue($event, value, i)">
+                            <!-- [checked]="size === value.name.charAt(0).toLowerCase() ? true : false" -->
+                        <label for="{{ custom.key.toLowerCase() + i }}" [innerHtml]="custom.key === 'Size' ? (value.name | boldFirst) : (value.name)"></label>
+                    </td>
+                    <td>{{ custom.key === 'Size' ? sizePrice ? sizePrice[i] : value.price : (value.price | addPlus) }} .-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

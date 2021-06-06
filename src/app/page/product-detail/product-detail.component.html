@@ -1,0 +1,47 @@
+<div class="container-fluid mt-3">
+    <div class="row bg-black mx-1">
+        <div class="col-12 col-lg-5">
+            <div class="product-img-box mx-auto">
+                <img class="product-img" src="assets/images/pizza/{{ pizza.img }}" alt="pizza image" onerror="this.src='assets/images/pizza/default.png'">
+            </div>
+        </div>
+        <div class="col-12 col-lg-7">
+            <div class="dropdown my-5">
+                <button class="btn btn-block dropdown-select" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <h2 class="d-inline">{{ pizza.name }} Pizza</h2>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 100%;">
+                    <ng-container *ngFor="let expizza of allPizza">
+                        <a class="dropdown-item" routerLink="/products/{{ expizza.id }}">{{ expizza.name }}</a>
+                    </ng-container>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <th class="description-head">Original topping: </th>
+                    <td>{{ pizza.description }}</td>
+                </tr>
+            </table>
+            <p class="pizza-price pt-5">Price: {{ total | number }} .-</p>
+        </div>
+
+        <div class="col-12 mb-3">
+            <hr class="hr-white">
+            <app-custom-selection [sizePrice]="pizzaPrice" (selectedCustom)="changeCustom($event)"></app-custom-selection>
+        </div>
+        <div class="col-12 col-sm-5 offset-sm-1 mb-3">
+            <button class="btn btn-danger btn-block" (click)="addToCart(pizza)"><h3>+ Add to cart</h3></button>
+        </div>
+        <div class="col-12 col-sm-5 mb-4">
+            <button class="btn btn-danger btn-block" id="custom-btn" (click)="toggleHide()"><h3>Customize pizza</h3></button>
+        </div>
+    </div>
+
+    <div class="row mt-3 d-none" id="custom-div">
+        <div class="col-12">
+            <app-topping-selection [maximunTopping]="maximunTopping" (selectedTopping)="changeTopping($event)"></app-topping-selection>
+
+            <app-total-selection [selectedCustom]="selectedCustom" [selectedTopping]="selectedTopping" [total]="total" [pizza]="pizza"></app-total-selection>
+        </div>
+    </div>
+</div>

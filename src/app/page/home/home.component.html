@@ -1,0 +1,23 @@
+<img src="assets/images/banner1.jpg" alt="img">
+<div class="container-fluid">
+    <h1 class="pk-header text-center mb-3">Hot Promotion!</h1>
+    <div class="row">
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-4 offset-lg-0" *ngFor="let pizza of pizzas">
+            <app-product-box [pizza]="pizza"></app-product-box>
+        </div>      
+    </div>
+</div>
+<!-- Design pizza -->
+<img src="assets/images/cust-img3.png" alt="img" class="py-3">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 offset-0 col-lg-10 offset-lg-1">
+            <h2 class="header-border">Step 1</h2>
+            <app-custom-selection (selectedCustom)="changeCustom($event)"></app-custom-selection>
+            <h2 class="header-border">Step 2</h2>
+            <app-topping-selection [maximunTopping]="maximunTopping" (selectedTopping)="changeTopping($event)"></app-topping-selection>
+
+            <app-total-selection [selectedCustom]="selectedCustom" [selectedTopping]="selectedTopping" [total]=total></app-total-selection>
+        </div>
+    </div>
+</div>

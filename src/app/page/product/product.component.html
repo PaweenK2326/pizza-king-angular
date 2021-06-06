@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <h1 class="pk-header">Original Pizzas</h1>
+    <div class="row">
+        <div class="col-12 col-lg-6 mb-2 mb-lg-0 pr-3 pr-lg-5">
+            <div class="row">
+                <div class="col-4 col-sm-3 col-lg-4 col-xl-3 pr-1">
+                    <h4 class="my-1">Search pizza: </h4>
+                </div>
+                <div class="col-8 col-sm-9 col-lg-8 col-xl-9 pl-0">
+                    <input type="search" id="search" class="form-control search-input" [(ngModel)]="search" (keyup)="searched()">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 mb-3">
+            <div class="filter-row">
+                <select id="sort-name" name="{{ sortNameBy }}" class="form-control ml-lg-auto mr-2" (change)="sort($event)">
+                    <option value="" disabled selected hidden>Sort by name</option>
+                    <option value="ascending">Sort by name A-Z</option>
+                    <option value="descending">Sort by name Z-A</option>
+                </select>
+                <select id="sort-price" name="{{ sortPriceBy }}" class="form-control" (change)="sort($event)">
+                    <option value="" disabled selected hidden>Sort by price</option>
+                    <option value="ascending">Sort by price low-high</option>
+                    <option value="descending">Sort by price high-low</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-4 offset-lg-0" *ngFor="let pizza of (pizzas | searchPizza: search)">
+            <app-product-box [pizza]="pizza"></app-product-box>
+        </div>     
+        <div class="col-12" *ngIf="(pizzas | searchPizza: search).length < 1">
+            <p>Not found</p>
+        </div>         
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="card mb-3">
+    <div class="card-body px-0 pt-0">
+        <img class="card-img-top" src="assets/images/pizza/{{ pizza.img }}" alt="Card image cap" onerror="this.src='assets/images/pizza/default.png'">
+        <h2 class="card-title pk-header text-center">{{ pizza.name }} Pizza</h2>
+        <div class="container">
+            <div class="row pk-price-box px-3">
+                <div class="col-6"><p [innerHtml]="sizes[0].name | boldFirst"></p></div>                        
+                <div class="col-4 text-right"><p>{{ pizza.priceS }} .-</p></div>
+                <div class="col-2 pr-0 text-right">
+                    <a [routerLink]="['/products', pizza.id]" [queryParams]="{size: sizes[0].name.charAt(0).toLowerCase()}"><button class="btn btn-danger pk-button mb-2">+</button></a>
+                </div>
+
+                <div class="col-6"><p [innerHtml]="sizes[1].name | boldFirst"></p></div>                        
+                <div class="col-4 text-right"><p>{{ pizza.priceM }} .-</p></div>
+                <div class="col-2 pr-0 text-right">
+                    <a [routerLink]="['/products', pizza.id]" [queryParams]="{size: sizes[1].name.charAt(0).toLowerCase()}"><button class="btn btn-danger pk-button mb-2">+</button></a>
+                </div>
+
+                <div class="col-6"><p [innerHtml]="sizes[2].name | boldFirst"></p></div>                        
+                <div class="col-4 text-right"><p>{{ pizza.priceL }} .-</p></div>
+                <div class="col-2 pr-0 text-right">
+                    <a [routerLink]="['/products', pizza.id]" [queryParams]="{size: sizes[2].name.charAt(0).toLowerCase()}"><button class="btn btn-danger pk-button mb-2">+</button></a>
+                </div>
+
+                <div class="col-12 px-0">
+                    <a routerLink="/products/{{ pizza.id }}"><button class="btn btn-secondary btn-block">Customize my pizza</button></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

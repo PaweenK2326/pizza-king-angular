@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Rubik', sans-serif;
+}
+h1, h2, h3, h4, h5{
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+}
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+body {
+    background: url(./assets/images/bg-img.png);
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+}
+.pk-header{
+    color: white;
+    background-color: #252525;
+    margin: 0.3em 0;
+}
+.pk-button{
+    border-radius: 7px;
+    padding: 2px 10px;
+}
+.pk-container{
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+    z-index: 1;
+    padding-top: 108px;
+    padding-bottom: 5em;
+    min-height: 100vh;
+}
+.pk-container2{
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.pk-table{
+    width: 100%;
+    max-width: 223px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+}
+.text-alert{
+    margin-bottom: 0;
+    margin-top: 0.5em;
+    color: red;
+}
+main .pk-container{
+    /* -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset; */
+            box-shadow:0px 0px 150px 150px rgb(0 0 0 / 40%);
+
+}
+.pk-b-container{
+    background-color: #252525;
+    border-radius: 20px;
+    color: white;
+    padding: 1em 2em;
+}
+.border-rb{
+    border-bottom: 3px solid white;
+}
+.pk-price-total{
+    font-size: 1.7em;
+    text-align: right;
+    padding-right: 13px;
+    padding-left: 30px;
+    color: #252525;
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+.nav-link.disabled:not(.nav-head){
+    text-decoration: line-through;
+}
+@media (min-width: 768px){
+    .pk-container{
+        max-width: 750px;
+    } 
+}
+@media (min-width: 992px){
+    .pk-container{
+        max-width: 950px;
+    }
+    .border-rb{
+        border-bottom: none;
+        border-right: 3px solid white;
+    }
+}
+@media (min-width: 1200px){
+    .pk-container{
+        max-width: 1150px;
+    } 
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

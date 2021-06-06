@@ -1,0 +1,5 @@
+.card-img-top{
+    background-image: url(../../../assets/images/pizza-bg.png); /* The image used */
+    background-size: 100%;
+    padding: 10% 12% 16% 13%;
+}

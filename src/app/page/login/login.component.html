@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <h1 class="text-center pk-header my-3">Login</h1>
+    <div class="row">
+        <div class="offset-xl-3 col-xl-6 offset-md-2 col-md-8">
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div class="form-group row">
+                    <label for="email" class="col-2 col-form-label text-right"><fa-icon icon="envelope" size="lg"></fa-icon></label>
+                    <div class="col-10">
+                        <input type="text" placeholder="Email" id="email" class="form-control" formControlName="email" required>
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <p class="text-alert" *ngIf="email.errors.required">Email is required.</p>
+                            <p class="text-alert" *ngIf="email.errors.email">Email is wrong format.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="password" class="col-2 col-form-label text-right"><fa-icon icon="key" size="lg" rotate="270"></fa-icon></label>
+                    <div class="col-10">
+                        <input type="password" placeholder="Password" id="password" class="form-control mb-1" formControlName="password" required>
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                            <p class="text-alert" *ngIf="password.errors.required">Password is required.</p>
+                            <p class="text-alert" *ngIf="password.errors.minlength">Password minimum is 4 characters.</p>
+                            <p class="text-alert" *ngIf="password.errors.maxlength">Password maximum is 25 characters.</p>
+                        </div>
+                        <span class="input-icon" aria-hidden="true"><fa-icon [icon]="eyeIcon" size="lg" (click)="showPassword()" [fixedWidth]="true"></fa-icon></span>
+                        <a routerLink="/login">forget password?</a>
+                    </div>
+                </div>
+                <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="!loginForm.valid">Login with Email</button>
+            </form>
+            <hr class="my-4">
+            <button class="btn btn-danger btn-lg btn-block"><fa-icon [icon]="googleIcon" size="lg" [classes]="['mr-3']"></fa-icon>Login with Google+</button>
+            <button class="btn btn-primary btn-lg btn-block"><fa-icon [icon]="facebokkIcon" size="lg" [classes]="['mr-3']"></fa-icon>Login with Facebook</button>
+            <hr class="my-4">
+            <p class="text-center">Don't have an account? <a routerLink="/register">register</a> now!</p>
+        </div>
+    </div>
+</div>

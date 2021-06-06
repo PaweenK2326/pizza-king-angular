@@ -1,0 +1,25 @@
+<h3 class="text-center">Add your Topping</h3>
+<p class="text-center">( Maximum of {{ maximunTopping }} toppings can be added )</p>
+<div class="row">
+    <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-lg-4 offset-lg-0 px-md-4 px-xl-5" *ngFor="let each of toppings | keyvalue">
+        <table class="pk-table">
+            <thead>
+                <tr>
+                    <th colspan="2"><h3 class="text-center">{{ each.key }}.-/each</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let topping of each.value">
+                    <td>{{ topping.name }}</td>
+                    <td class="text-right">
+                        <div class="btn-group my-1" role="group">
+                            <button type="button" class="btn btn-secondary pk-button" (click)="decreaseValue($event, topping)">-</button>
+                            <input type="number" value="0" min="0" max="{{ maximunTopping }}" class="text-center pk-quantity-input" (keyup)="changeQty($event, topping)">
+                            <button type="button" class="btn btn-danger pk-button" (click)="increaseValue($event, topping)">+</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

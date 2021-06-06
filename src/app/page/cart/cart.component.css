@@ -1,0 +1,30 @@
+.price-box{
+    font-size: 1.7em;
+    text-align: right;
+    padding-right: 13px;
+    color: #252525;
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    background-color: white;
+    border-radius: 5px;
+}
+.quantity-input{
+    width: 50px;
+}
+.btn-group{
+    height: 40px;
+}
+.quantity-box{
+    display: flex;
+    justify-content: center;
+}
+.border-b{
+    border-bottom: 3px solid white;
+}
+.pizza-head{
+    color: white;
+    display: block;
+}
+.pizza-head:hover{
+    text-decoration: none;
+}

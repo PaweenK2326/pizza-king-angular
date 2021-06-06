@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <h1>My Cart</h1>
+    <div class="pk-b-container" *ngIf="items.length > 0">
+        <ng-container *ngFor="let item of items; let first = first; let last = last; index as i">
+            <div class="row" style="align-items: center;" [ngClass]="[first? '' : 'pt-3', last? '' : 'pb-3']">
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <a class="pizza-head" data-toggle="collapse" href="#collapse{{i}}" role="button" aria-expanded="false" aria-controls="collapse{{i}}">
+                        <h2 class="d-inline pr-3">{{ item['pizza'] ? item['pizza'].name : 'My selection' }} pizza </h2><fa-icon [icon]="arrowDownIcon" size="lg" [styles]="{'color': 'white'}"></fa-icon>
+                    </a>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="quantity-box">
+                        <div class="btn-group my-1" role="group">
+                            <button type="button" class="btn btn-secondary" (click)="decreaseQty(i)">-</button>
+                            <input type="number" value="{{ item.quantity }}" min="0" class="text-center quantity-input" (keyup)="changeQty($event, i)">
+                            <button type="button" class="btn btn-danger" (click)="increaseQty(i)">+</button>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="price-box">
+                        <p class="mb-0">{{ item.total * item.quantity | number }} <span class="ml-lg-3 ml-xl-5"> .-</span></p>
+                    </div>
+                </div>
+                <div class="col-2 col-md-1"><button class="btn btn-danger" (click)="deleteItem(i)">X</button></div>
+            </div>
+            <div class="row" [ngClass]="last? '' : 'border-b'">
+                <div class="col-12 collapse" id="collapse{{i}}">
+                    <div class="row">
+                        <div class="col-12 col-lg-4 border-rb my-3">
+                            <table class="pk-table ml-0">
+                                <tr *ngFor="let custom of item.custom | keyvalue: originalOrder">
+                                    <th><h4>{{ custom.key }}: </h4></th>
+                                    <td>{{ custom.value.name }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-12 col-lg-8 pl-5 my-3">
+                            <div class="row pt-2">
+                                <ng-container *ngFor="let topping of item.topping | keyvalue: originalOrder">
+                                    <div class="col-6 col-lg-4 col-xl-3 pr-0"><p>{{ topping.key }}</p></div>
+                                    <div class="col-6 col-lg-2 col-xl-3 total-topping"><p>{{ topping.value.quantity }}</p></div>
+                                </ng-container>
+                            </div>
+                        </div>                              
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="row mt-3" *ngIf="items.length > 0">
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                <h2>Total :</h2>
+                <div class="pk-price-total">
+                    <p class="mb-0">{{ total | number }} <span class="ml-lg-1 ml-xl-2"> .-</span></p>
+                </div>
+                <button class="btn btn-danger" [disabled]="total === 0" routerLink="/checkout">Checkout</button>
+            </div>
+        </div>
+    </div>
+    <div class="text-center py-4" *ngIf="items.length === 0">
+        <h2 class="mb-3">There is no item in cart</h2>
+        <a routerLink="/products"><button class="btn btn-warning"><h3>Get your pizza now!</h3></button></a>
+    </div>    
+</div>

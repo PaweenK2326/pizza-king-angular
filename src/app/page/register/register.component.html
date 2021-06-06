@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <h1 class="text-center pk-header my-3">Register</h1>
+    <div class="row">
+        <div class="offset-xl-3 col-xl-6 offset-md-2 col-md-8">
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                <!-- first name -->
+                <div class="form-group row">
+                    <label for="firstname" class="col-2 col-form-label text-right"><fa-icon [icon]="userIcon" size="lg" [fixedWidth]="true"></fa-icon></label>
+                    <div class="col-10 form-required">
+                        <input type="text" placeholder="Firstname" id="firstname" class="form-control" formControlName="firstname" required>
+                        <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">
+                            <p class="text-alert" *ngIf="firstname.errors.required">Firstname is required.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- last name -->
+                <div class="form-group row">
+                    <div class="offset-2 col-10 form-required">
+                        <input type="text" placeholder="Lastname" id="lastname" class="form-control" formControlName="lastname" required>
+                        <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+                            <p class="text-alert" *ngIf="lastname.errors.required">Lastname is required.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- gender -->
+                <div class="form-group row">
+                    <div class="col-2 col-form-label text-right"><fa-icon [icon]="genderIcon" size="lg" [fixedWidth]="true"></fa-icon></div>
+                    <div class="col-10 form-height">
+                        <input type="radio" id="male" name="gender" class="mr-1" formControlName="gender" value="male">
+                        <label for="male" class="col-form-label mr-3">Male</label>
+                        <input type="radio" id="female" name="gender" class="mr-1" formControlName="gender" value="female">
+                        <label for="female" class="col-form-label">Female</label>
+                    </div>
+                </div>
+                <!-- phone -->
+                <div class="form-group row">
+                    <label for="phone" class="col-2 col-form-label text-right"><fa-icon [icon]="mobileIcon" size="lg" [fixedWidth]="true"></fa-icon></label>
+                    <div class="col-10">
+                        <input type="text" placeholder="Phone number" id="phone" class="form-control" formControlName="phone">
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="form-group row">
+                    <label for="email" class="col-2 col-form-label text-right"><fa-icon icon="envelope" size="lg" [fixedWidth]="true"></fa-icon></label>
+                    <div class="col-10 form-required">
+                        <input type="text" placeholder="Email" id="email" class="form-control" formControlName="email" required>
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <p class="text-alert" *ngIf="email.errors.required">Email is required.</p>
+                            <p class="text-alert" *ngIf="email.errors.email">Email is wrong format.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="form-group row">
+                    <label for="password" class="col-2 col-form-label text-right"><fa-icon icon="key" size="lg" rotate="270" [fixedWidth]="true"></fa-icon></label>
+                    <div class="col-10 form-required">
+                        <input type="password" placeholder="Password" id="password" class="form-control mb-1" formControlName="password" required>
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                            <p class="text-alert" *ngIf="password.errors.required">Password is required.</p>
+                            <p class="text-alert" *ngIf="password.errors.minlength">Password minimum is 4 characters.</p>
+                            <p class="text-alert" *ngIf="password.errors.maxlength">Password maximum is 25 characters.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- confirm password -->
+                <div class="form-group row">
+                    <div class="offset-2 col-10">
+                        <input type="password" placeholder="Confirm password" id="c-password" class="form-control mb-1" formControlName="confirmpassword" required>
+                        <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)">
+                            <p class="text-alert" *ngIf="confirmpassword.errors.required">Confirm password is required.</p>
+                        </div>
+                        <div *ngIf="registerForm.errors">
+                            <p class="text-alert" *ngIf="registerForm.errors.confirmed">Confirm password is not matched.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-2 col-10">
+                        <div class="form-check">
+                            <input type="checkbox" id="condition" class="form-check-input mb-1" formControlName="terms" required>
+                            <label for="condition" class="form-check-label">I have read and accepted <a routerLink="/register">terms & conditions</a> and <a routerLink="/register">privacy policy</a> of Pizza King</label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="!registerForm.valid">Create account</button>
+            </form>
+        </div>
+    </div>
+</div>

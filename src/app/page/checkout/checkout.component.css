@@ -1,0 +1,28 @@
+.heading{
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+.form-required::after{
+    content: '*';
+    position: absolute;
+    top: 35px;
+    right: 23px;
+    color: red;
+    font-size: 30px;
+}
+.payment-input{
+    display: none;
+}
+.payment-input+label{
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    padding: 5px 10px;
+    background-color: lightgray;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.payment-input:checked+label{
+    background-color: #ec4859;
+    font-weight: 600;
+}

@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <h1>Checkout</h1>
+    <div class="row">
+        <div class="col-10 offset-1">
+            <h2 class="heading">Delivery Information</h2>
+            <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">      
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group form-required">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" class="form-control" id="phone" formControlName="phone" required>
+                            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                                <p class="text-alert" *ngIf="phone.errors.required">Phone Number is required.</p>
+                                <p class="text-alert" *ngIf="phone.errors.pattern">Phone Number can only contain number(0-9), dash(-), plus(+).</p>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="detail">Address Detail</label>
+                            <input type="text" class="form-control" id="detail" formControlName="detail" placeholder="Ex. 12/34, ABC Village, Soi 5 ( first house on the left )">
+                        </div>        
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group form-required">
+                            <label for="province">Province</label>
+                            <input type="text" class="form-control" id="province" formControlName="province" required>
+                            <div *ngIf="province.invalid && (province.dirty || province.touched)">
+                                <p class="text-alert" *ngIf="province.errors.required">Province is required.</p>
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group form-required">
+                            <label for="district">District</label>
+                            <input type="text" class="form-control" id="district" formControlName="district" required>
+                            <div *ngIf="district.invalid && (district.dirty || district.touched)">
+                                <p class="text-alert" *ngIf="district.errors.required">District is required.</p>
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group form-required">
+                            <label for="sub_district">Sub District</label>
+                            <input type="text" class="form-control" id="sub_district" formControlName="sub_district" required>
+                            <div *ngIf="sub_district.invalid && (sub_district.dirty || sub_district.touched)">
+                                <p class="text-alert" *ngIf="sub_district.errors.required">Sub District is required.</p>
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group form-required">
+                            <label for="zipcode">Zipcode</label>
+                            <input type="text" class="form-control" id="zipcode" formControlName="zipcode" required>
+                            <div *ngIf="zipcode.invalid && (zipcode.dirty || zipcode.touched)">
+                                <p class="text-alert" *ngIf="zipcode.errors.required">Zipcode is required.</p>
+                            </div>
+                        </div>    
+                    </div>
+                    <div class="col-12"><h2 class="heading">Payment Method</h2></div>
+                    <div class="col-12 col-md-6">
+                        <input type="radio" name="payment" id="cash" class="payment-input" formControlName="payment" value="cash">
+                        <label for="cash">Cash</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input type="radio" name="payment" id="credit" class="payment-input" formControlName="payment" value="credit">
+                        <label for="credit">Credit Card</label>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="d-flex justify-content-center">
+                            <h2>Total :</h2>
+                            <div class="pk-price-total">
+                                <p class="mb-0">{{ total | number }}<span class="ml-lg-1 ml-xl-2"> .-</span></p>
+                            </div>
+                            <button class="btn btn-danger px-4 px-md-5" [disabled]="!checkoutForm.valid" routerLink="/thankyou">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<header>
+    <div class="pk-head">
+        <nav class="navbar navbar-dark pk-container2 py-1">
+            <a class="navbar-brand p-0" routerLink="home"><img src="assets/images/logo-wb.png" alt="logo" class="logo pl-3"></a>
+            <button class="navbar-toggler" id="navbarToggleButton" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="ml-auto d-none d-lg-block">
+                <img src="assets/images/user.png" alt="user-icon" class="mini-icon">
+                <a routerLink="/login" class="pk-auth" [innerText]="'Login'"></a> <span class="nav-head">/</span> 
+                <a routerLink="/register" class="pk-auth" [innerText]="'Register'"></a>                    
+            </div>
+            <div class="ml-auto ml-lg-0">
+                <a  routerLink="/cart"><img src="assets/images/shopping-cart.svg" alt="cart-icon" class="icon pr-3"></a>
+                <!-- <span class="badge badge-pill badge-danger">{{ cartCount }}</span> -->
+            </div>
+        </nav>        
+    </div>
+    <div class="collapse " id="navbarToggle">
+        <nav class="bg-dark pb-3">
+            <ul class="nav pk-container2 flex-column flex-lg-row px-5">
+                <li class="nav-item d-block d-lg-none pt-4 text-center">
+                    <img src="assets/images/user.png" alt="user-icon" class="mini-icon">
+                    <a routerLink="/login" class="pk-auth" [innerText]="'Login'"></a> <span class="nav-head">/</span> 
+                    <a routerLink="/register" class="pk-auth" [innerText]="'Register'"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-head disabled" routerLink="#">Promotion</a>
+                    <a class="nav-link disabled" routerLink="#">This Month</a>
+                    <a class="nav-link disabled" routerLink="#">Member Special</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-head" routerLink="products">Pizza</a>
+                    <a class="nav-link" routerLink="products">Original Pizza</a>
+                    <a class="nav-link" routerLink="#">Design Pizza</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-head disabled" routerLink="#">Other</a>
+                    <a class="nav-link disabled" routerLink="#">Pasta</a>
+                    <a class="nav-link disabled" routerLink="#">Snack</a>
+                    <a class="nav-link disabled" routerLink="#">Drinks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-head disabled" routerLink="#">Account</a>
+                    <a class="nav-link disabled" routerLink="#">Account Setting</a>
+                    <a class="nav-link disabled" routerLink="#">Payment</a>
+                    <a class="nav-link disabled" routerLink="#">Help?</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

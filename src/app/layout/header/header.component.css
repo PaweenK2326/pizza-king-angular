@@ -1,0 +1,73 @@
+header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.navbar-toggler-icon{
+    background-image: url(../../../assets/images/hamburger.png);
+}
+.navbar-toggler{
+    border: none;
+}
+.pk-head{
+    position: relative;
+    background-color: #252525;
+}
+.logo{
+    max-height: 100px;
+}
+.mini-icon{
+    max-height: 25px;
+    filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(128deg) brightness(109%) contrast(101%);
+}
+.icon{
+    max-height: 50px;
+    filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(128deg) brightness(109%) contrast(101%);
+}
+.badge{
+    line-height: 22px;
+    font-size: 16px;
+    position: relative;
+    top: -10px;
+    left: -26px;
+}
+.nav-item{
+    padding-bottom: 1em;
+    border-bottom: 5px solid rgba(255,255,255, 0.5);
+}
+.nav-link{
+    color: rgba(255,255,255,.5);
+}
+.nav-link:hover{
+    color: rgba(255,255,255);
+}
+.nav-head{
+    color: rgba(255,255,255);
+    padding-top: 1em;
+    font-size: 20px;
+    font-weight: 600;
+}
+.pk-auth{
+    color: rgba(255,255,255,.8);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    padding-right: 0.7em;
+    padding-left: 0.7em;
+}
+.pk-auth:hover{
+    color: rgba(255,255,255);
+}
+@media (min-width: 768px){
+
+}
+@media (min-width: 992px){
+    .nav-item{
+        border: none;
+        padding-right: 4em;
+    }
+    .nav-head{
+        padding-top: 2em;
+    }
+}

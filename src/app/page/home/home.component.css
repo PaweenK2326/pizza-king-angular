@@ -1,0 +1,10 @@
+img{
+    width: 100%;
+}
+.header-border{
+    border-bottom: 4px solid #252525;
+}
+
+@media (min-width: 992px){
+
+}

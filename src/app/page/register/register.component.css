@@ -1,0 +1,11 @@
+.form-height{
+    line-height: 38px;
+}
+.form-required::after{
+    content: '*';
+    position: absolute;
+    top: 4px;
+    right: 23px;
+    color: red;
+    font-size: 30px;
+}
